@@ -52,8 +52,7 @@ ENV RVERSION 3.2.3
 
 RUN rm -rf R-${RVERSION} R-${RVERSION}.tar.gz \
         && major=$(echo $RVERSION | sed 's/\..*$//') \
-	        &&
-url="${CRAN}/src/base/R-${major}/R-${RVERSION}.tar.gz" \
+        && url="${CRAN}/src/base/R-${major}/R-${RVERSION}.tar.gz" \
         && curl -O "$url" \
 	&& tar xzf "R-${RVERSION}.tar.gz"
 		
