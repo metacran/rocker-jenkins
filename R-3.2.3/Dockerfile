@@ -77,3 +77,6 @@ RUN cd R-${RVERSION}                                             \
 	&& make install
 
 USER jenkins
+
+COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
+ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
