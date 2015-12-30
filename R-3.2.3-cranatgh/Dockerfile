@@ -14,12 +14,13 @@ RUN apt-get update                     \
 
 ENV PATH /opt/R-3.2.3/bin:$PATH
 
-RUN echo 'options(repos = c(CRAN = "https://cran.rstudio.com/"))'   \
-		>> ~/.Rprofile                                      \
-        && Rscript -e 'install.packages("devtools")'                \
-	&& Rscript -e 'devtools::install_github("gaborcsardi/gh")'  \
-	&& Rscript -e 'devtools::install_github("metacran/crandb")' \
-	&& Rscript -e 'devtools::install_github("metacran/description")' \
-	&& Rscript -e 'devtools::install_github("metacran/cranatgh")'
+RUN Rscript -e 'options(repos = c(CRAN = "https://cran.rstudio.com/"))' \
+            -e 'install.packages("devtools")'                           \
+            -e 'library(devtools)'                                      \
+            -e 'install_github("gaborcsardi/gh")'                       \
+            -e 'install_github("metacran/crandb")'                      \
+            -e 'install_github("metacran/description")'                 \
+            -e 'install_github("metacran/cranatgh")'
+
 
 USER jenkins
