@@ -19,7 +19,7 @@ RUN Rscript -e 'options(repos = c(CRAN = "https://cran.rstudio.com/"))' \
             -e 'library(devtools)'                                      \
             -e 'install_github("gaborcsardi/gh")'                       \
             -e 'install_github("metacran/crandb")'                      \
-            -e 'install_github("metacran/description")'                 \
+            -e 'install_github("metacran/desc")'                        \
             -e 'install_github("metacran/cranatgh")'
 
 
